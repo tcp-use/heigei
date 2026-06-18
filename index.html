@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>至高の締め一椀 | 喜記（ヘイゲイ）</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<style>
+:root {
+  --ink:    #0f0d0b;
+  --gold:   #c9a96e;
+  --gold-lt:#e8d5a3;
+  --cream:  #f7f4ef;
+  --warm:   #ede8e0;
+  --muted:  #6b5c4c;
+  --text:   #2c2319;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Serif JP', serif;
+  background: var(--cream);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 0 80px rgba(0,0,0,0.10);
+  overflow: hidden;
+}
+
+/* ── HERO ──────────────────────────────── */
+#hero {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  background-image: url('images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+  transform: scale(1.08);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+  padding: 0 40px;
+}
+
+.hero-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.55em;
+  color: var(--gold);
+  text-transform: uppercase;
+  opacity: 0;
+  margin-bottom: 28px;
+}
+
+.hero-rule {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  margin: 0 auto 32px;
+  opacity: 0;
+}
+
+.hero-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(36px, 9vw, 48px);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.5;
+  letter-spacing: 0.18em;
+  opacity: 0;
+  margin-bottom: 32px;
+}
+
+.hero-title em {
+  color: var(--gold);
+  font-style: normal;
+}
+
+.hero-sub {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.18em;
+  line-height: 2;
+  opacity: 0;
+  margin-bottom: 52px;
+}
+
+.hero-scroll {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-scroll::before {
+  content: '';
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  display: block;
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+  0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  50%  { opacity: 1; transform: scaleY(1); }
+  100% { opacity: 0; transform: scaleY(1); }
+}
+
+/* ── SECTIONS BASE ──────────────────────── */
+.section {
+  padding: 72px 36px;
+}
+
+.section-eyebrow {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+
+.section-body {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 2.1;
+  letter-spacing: 0.10em;
+  color: var(--muted);
+}
+
+.gold-line {
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 0 32px;
+}
+
+/* ── INTRO ──────────────────────────────── */
+#intro {
+  background: #fff;
+}
+
+.intro-img-wrap {
+  margin: 40px -36px;
+  height: 240px;
+  overflow: hidden;
+  position: relative;
+}
+
+.intro-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+}
+
+.intro-caption {
+  text-align: right;
+  margin-top: 12px;
+}
+
+.intro-caption span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* ── CRAFT ──────────────────────────────── */
+#craft {
+  background: var(--cream);
+}
+
+.craft-item {
+  margin-bottom: 56px;
+}
+
+.craft-item:last-child { margin-bottom: 0; }
+
+.craft-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.craft-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+}
+
+.craft-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.craft-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+/* ── LOGIC ──────────────────────────────── */
+#logic {
+  background: var(--ink);
+  padding: 72px 36px;
+}
+
+#logic .section-title {
+  color: #fff;
+}
+
+#logic .section-body {
+  color: rgba(255,255,255,0.5);
+}
+
+#logic .gold-line {
+  background: var(--gold);
+}
+
+#logic .section-eyebrow {
+  color: var(--gold-lt);
+}
+
+.logic-highlight {
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.logic-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 36px 0;
+}
+
+/* ── HOW TO EAT ─────────────────────────── */
+#howto {
+  background: #fff;
+}
+
+.step-list {
+  list-style: none;
+  margin-bottom: 52px;
+}
+
+.step-item {
+  display: flex;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--warm);
+}
+
+.step-item:first-child {
+  border-top: 1px solid var(--warm);
+}
+
+.step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 2px;
+  width: 32px;
+}
+
+.step-text {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 2;
+  letter-spacing: 0.10em;
+  color: var(--muted);
+  padding-top: 4px;
+}
+
+/* ── MENU CARD ──────────────────────────── */
+.menu-card {
+  border: 1px solid var(--gold);
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+  background: var(--cream);
+}
+
+.menu-card::before,
+.menu-card::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--gold);
+}
+
+.menu-card::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.menu-card::after  { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+.menu-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.menu-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.menu-note {
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.menu-thin-line {
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 24px;
+}
+
+.menu-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 38px;
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.menu-price sup {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  vertical-align: super;
+}
+
+.menu-staff {
+  font-size: 11px;
+  font-weight: 300;
+  line-height: 2;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 32px;
+}
+
+/* ── FOOTER ─────────────────────────────── */
+footer {
+  background: var(--ink);
+  padding: 48px 36px;
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 6px;
+}
+
+.footer-logo-en {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px;
+  font-weight: 300;
+  letter-spacing: 0.5em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 28px;
+}
+
+.footer-rule {
+  width: 32px;
+  height: 1px;
+  background: rgba(255,255,255,0.12);
+  margin: 0 auto 20px;
+}
+
+.footer-copy {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+}
+
+/* ── REVEAL ANIMATION ───────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: none;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ① HERO -->
+  <section id="hero">
+    <div class="hero-img"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Heigei — 喜記</p>
+      <div class="hero-rule"></div>
+      <h1 class="hero-title">至高の<br><em>締め一椀</em></h1>
+      <p class="hero-sub">
+        お腹はいっぱい。でも、これを食べずに<br>
+        帰るのは、もったいない。
+      </p>
+      <div class="hero-scroll">Scroll</div>
+    </div>
+  </section>
+
+  <!-- ② INTRO -->
+  <section id="intro" class="section">
+    <span class="gold-line"></span>
+    <span class="section-eyebrow reveal">Why leave</span>
+    <h2 class="section-title reveal">締めは、<br>ここで。</h2>
+    <p class="section-body reveal">
+      点心、焼物、お酒——存分に楽しまれたなら、あとは締めるだけです。わざわざ別の店へ移動する必要はありません。
+    </p>
+
+    <div class="intro-img-wrap reveal">
+      <img src="images/soup.jpg" alt="琥珀色のスープ">
+    </div>
+
+    <div class="intro-caption reveal">
+      <span>The Essence — 海の純粋なる抽出</span>
+    </div>
+
+    <p class="section-body reveal" style="margin-top:32px;">
+      お腹いっぱいのときでも、すっと入る。それがハーフサイズの海老ワンタン麺です。重くなく、でも満たされる。「食べて帰らないと損だ」と、きっと思っていただけます。
+    </p>
+  </section>
+
+  <!-- ③ THE CRAFT -->
+  <section id="craft" class="section">
+    <span class="gold-line"></span>
+    <span class="section-eyebrow reveal">The Craft</span>
+    <h2 class="section-title reveal">当店が香港式<br>ワンタン麺に<br>こだわる理由。</h2>
+
+    <div class="craft-item reveal">
+      <div class="craft-img">
+        <img src="images/noodle.jpg" alt="鴨卵生麺">
+      </div>
+      <span class="craft-num">01</span>
+      <p class="craft-name">極細香港麺（生麺）</p>
+      <p class="section-body">
+        香港から直接仕入れる生麺です。現地さながらの独特の強いコシと歯ごたえ——日本のラーメンとは一線を画す、本物の「弾牙（バッガー）」な食感をそのままお届けします。
+      </p>
+    </div>
+
+    <div class="craft-item reveal">
+      <div class="craft-img">
+        <img src="images/wantan.jpg" alt="大地魚スープ">
+      </div>
+      <span class="craft-num">02</span>
+      <p class="craft-name">大地魚と羅漢果のスープ</p>
+      <p class="section-body">
+        乾燥させた大地魚（ダイテイユ）と海老の殻から丁寧に引いた、奥深いコクと香ばしさが特徴のスープ。さらに、長時間煮込んでも風味が変わらない天然甘味「羅漢果（ラカンカ）」を隠し味に。血糖値やカロリーに影響を与えない自然の甘みが、締めの一椀を翌朝の身体にも優しくします。
+      </p>
+    </div>
+
+    <div class="craft-item reveal">
+      <div class="craft-img">
+        <img src="images/dimsum.jpg" alt="手包みワンタン">
+      </div>
+      <span class="craft-num">03</span>
+      <p class="craft-name">海老ワンタン（手包み）</p>
+      <p class="section-body">
+        プリプリの海老の食感を主役に、毎朝1個1個、店舗で手包みしています。冷凍に頼らず、その日仕込んだものだけをご提供します。
+      </p>
+    </div>
+  </section>
+
+  <!-- ④ LOGIC（黒背景） -->
+  <section id="logic">
+    <span class="gold-line" style="margin:0 36px;padding-top:72px;display:block;margin-bottom:24px;"></span>
+    <div style="padding:0 36px 72px;">
+      <span class="section-eyebrow reveal">Hong Kong Style</span>
+      <h2 class="section-title reveal">ワンタンは、<br>麺の下に<br>隠れています。</h2>
+      <p class="section-body reveal">
+        運ばれてきたとき、ワンタンは見えません。これは本場香港の伝統的なスタイルです。
+      </p>
+      <div class="logic-divider"></div>
+      <p class="section-body reveal">
+        麺の食感を損なわないよう、プリプリの海老ワンタンをどんぶりの底に忍ばせております。まずはスープと麺を、そのあと底からワンタンを引き上げて、<span class="logic-highlight">本場の味をご堪能ください。</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ⑤ HOW TO EAT -->
+  <section id="howto" class="section">
+    <span class="gold-line"></span>
+    <span class="section-eyebrow reveal">How to eat</span>
+    <h2 class="section-title reveal">お召し上がり方</h2>
+
+    <ol class="step-list reveal">
+      <li class="step-item">
+        <span class="step-num">I</span>
+        <p class="step-text">
+          まずスープをひと口。大地魚と海老の香ばしい潮の香りを感じてください。
+        </p>
+      </li>
+      <li class="step-item">
+        <span class="step-num">II</span>
+        <p class="step-text">
+          麺をすすります。独特の強いコシと歯ごたえ——これが香港麺です。
+        </p>
+      </li>
+      <li class="step-item">
+        <span class="step-num">III</span>
+        <p class="step-text">
+          底からワンタンを引き上げ、プリプリの海老を噛み締めてください。混ぜながらお召し上がりいただくのが、本場のスタイルです。
+        </p>
+      </li>
+    </ol>
+
+    <div class="menu-card reveal">
+      <span class="menu-label">Night Only</span>
+      <p class="menu-name">本場香港式<br>海老ワンタン麺<br><span style="font-size:13px;letter-spacing:0.1em;color:var(--muted);font-weight:400;">（海老雲吞麺）</span></p>
+      <p class="menu-note">夜限定・ハーフサイズ</p>
+      <div class="menu-thin-line"></div>
+      <p class="menu-price"><sup>¥ </sup>1,200<sup> 税込</sup></p>
+    </div>
+
+    <p class="menu-staff reveal">
+      量やタイミングはご要望に合わせて調整いたします。<br>
+      お気軽にスタッフへお申し付けください。
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="footer-logo">喜記（ヘイゲイ）</p>
+    <span class="footer-logo-en">Heigei — Ginza</span>
+    <div class="footer-rule"></div>
+    <p class="footer-copy">© Heigei All Rights Reserved</p>
+  </footer>
+
+</div>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  // Hero sequence
+  const htl = gsap.timeline({ delay: 0.3 });
+  htl
+    .to('.hero-rule',    { opacity: 1, duration: 1.2, ease: 'power2.out' })
+    .to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.6')
+    .to('.hero-title',   { opacity: 1, y: 0, duration: 1.1, ease: 'power2.out' }, '-=0.5')
+    .to('.hero-sub',     { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' }, '-=0.4')
+    .to('.hero-scroll',  { opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.2')
+    .to('.hero-img',     { opacity: 0.28, scale: 1, duration: 3, ease: 'power1.out' }, 0);
+
+  // Scroll reveals
+  gsap.utils.toArray('.reveal').forEach(el => {
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none none'
+      }
+    });
+  });
+
+  // Image parallax (subtle)
+  document.querySelectorAll('.craft-img img, .intro-img-wrap img').forEach(img => {
+    gsap.to(img, {
+      yPercent: -6,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: img.parentElement,
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.2
+      }
+    });
+  });
+
+});
+</script>
+</body>
+</html>
