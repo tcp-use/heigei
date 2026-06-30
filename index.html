@@ -415,6 +415,105 @@ body {
   vertical-align: super;
 }
 
+.menu-prices {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0 auto 24px;
+  max-width: 280px;
+}
+
+.menu-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 12px;
+  border-bottom: 1px dotted rgba(201, 169, 110, 0.4);
+}
+
+.menu-price-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.price-type {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 0.08em;
+}
+
+.price-limit {
+  font-size: 10px;
+  color: var(--gold);
+  background: rgba(201, 169, 110, 0.1);
+  padding: 2px 6px;
+  border-radius: 2px;
+  margin-left: 6px;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.price-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.price-amount sup {
+  font-size: 11px;
+  color: var(--muted);
+  vertical-align: super;
+  margin-right: 2px;
+}
+
+.price-amount sub {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 10px;
+  color: var(--muted);
+  vertical-align: baseline;
+  margin-left: 2px;
+}
+
+.menu-option {
+  margin: 20px auto 0;
+  padding: 14px 16px;
+  max-width: 280px;
+  border-radius: 4px;
+  background: rgba(201, 169, 110, 0.06);
+  border: 1px dashed rgba(201, 169, 110, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.option-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: 0.08em;
+  background: var(--gold);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.option-desc {
+  font-size: 12px;
+  color: var(--text);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.option-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gold);
+  margin-left: 4px;
+}
+
 .menu-staff {
   font-size: 11px;
   font-weight: 300;
@@ -600,11 +699,25 @@ footer {
     </ol>
 
     <div class="menu-card reveal">
-      <span class="menu-label">Night Only</span>
+      <span class="menu-label">Menu</span>
       <p class="menu-name">本場香港式<br>海老ワンタン麺<br><span style="font-size:13px;letter-spacing:0.1em;color:var(--muted);font-weight:400;">（海老雲吞麺）</span></p>
-      <p class="menu-note">夜限定・ハーフサイズ</p>
       <div class="menu-thin-line"></div>
-      <p class="menu-price"><sup>¥ </sup>1,200<sup> 税込</sup></p>
+      
+      <div class="menu-prices">
+        <div class="menu-price-row">
+          <span class="price-type">通常サイズ</span>
+          <span class="price-amount"><sup>¥</sup>1,800<sub>（税込）</sub></span>
+        </div>
+        <div class="menu-price-row">
+          <span class="price-type">ハーフサイズ<span class="price-limit">夜限定</span></span>
+          <span class="price-amount"><sup>¥</sup>1,200<sub>（税込）</sub></span>
+        </div>
+      </div>
+
+      <div class="menu-option">
+        <span class="option-title">トッピング</span>
+        <span class="option-desc">自家製辛みそ <span class="option-price">+¥150</span></span>
+      </div>
     </div>
 
     <p class="menu-staff reveal">
